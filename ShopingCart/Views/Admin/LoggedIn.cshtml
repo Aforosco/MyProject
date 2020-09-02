@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<div style="margin-left: 30px;">
+    <h2>ADMIN DASHBOARD </h2>
+
+    @{
+        ViewBag.Title = "LoggedIn";
+    }
+
+    @if (Session["UserId"] != null)
+    {
+        <h4>Hello @Session["Username"].ToString()</h4>
+
+        <h4>@Html.ActionLink("Logout", "Logout", "Admin")</h4>
+    }
+    <div>
+        @Html.ActionLink("View Admin", "UserList")
+    </div>
+</div>

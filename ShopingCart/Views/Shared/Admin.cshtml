@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <table style="width :100%; border-collapse:collapse;background-color:navy" border="1">
+        <tr>
+            <td colspan="2">
+                <h1 style="align-content:center;">ADMIN</h1>
+            </td>
+        </tr>
+        <tr style="height:400px;">
+            <td width="15%" style="background-color: #fefee4">
+                @Html.Partial("_AdminView")
+            </td>
+            <td style=" background-color:aliceblue;">
+                @RenderBody()
+            </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <p style="align-content:center"> &copy; @DateTime.Now.Year - JOHN AFOLABI DESIGNS</p> 
+            </td>
+        </tr>
+     </table>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
