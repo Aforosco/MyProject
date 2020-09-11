@@ -55,6 +55,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,6 +135,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewAdminController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -155,9 +160,43 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\MyDbcontext.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="PaypalConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminBoard\dist\assets\demo\chart-area-demo.js" />
+    <Content Include="AdminBoard\dist\assets\demo\chart-bar-demo.js" />
+    <Content Include="AdminBoard\dist\assets\demo\chart-pie-demo.js" />
+    <Content Include="AdminBoard\dist\assets\demo\datatables-demo.js" />
+    <Content Include="AdminBoard\dist\assets\img\error-404-monochrome.svg" />
+    <Content Include="AdminBoard\dist\css\styles.css" />
+    <Content Include="AdminBoard\dist\index.html" />
+    <Content Include="AdminBoard\dist\js\scripts.js" />
+    <Content Include="AdminBoard\dist\layout-sidenav-light.html" />
+    <Content Include="AdminBoard\dist\layout-static.html" />
+    <Content Include="AdminBoard\dist\login.html" />
+    <Content Include="AdminBoard\dist\password.html" />
+    <Content Include="AdminBoard\dist\register.html" />
+    <Content Include="AdminBoard\dist\tables.html" />
+    <Content Include="AdminBoard\index.html" />
+    <Content Include="AdminBoard\scripts\build-assets.js" />
+    <Content Include="AdminBoard\scripts\build-pug.js" />
+    <Content Include="AdminBoard\scripts\build-scripts.js" />
+    <Content Include="AdminBoard\scripts\build-scss.js" />
+    <Content Include="AdminBoard\scripts\clean.js" />
+    <Content Include="AdminBoard\scripts\render-assets.js" />
+    <Content Include="AdminBoard\scripts\render-pug.js" />
+    <Content Include="AdminBoard\scripts\render-scripts.js" />
+    <Content Include="AdminBoard\scripts\render-scss.js" />
+    <Content Include="AdminBoard\scripts\sb-watch.js" />
+    <Content Include="AdminBoard\scripts\start-debug.js" />
+    <Content Include="AdminBoard\scripts\start.js" />
+    <Content Include="AdminBoard\src\assets\demo\chart-area-demo.js" />
+    <Content Include="AdminBoard\src\assets\demo\chart-bar-demo.js" />
+    <Content Include="AdminBoard\src\assets\demo\chart-pie-demo.js" />
+    <Content Include="AdminBoard\src\assets\demo\datatables-demo.js" />
+    <Content Include="AdminBoard\src\assets\img\error-404-monochrome.svg" />
+    <Content Include="AdminBoard\src\js\scripts.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -175,6 +214,7 @@
     <Content Include="Content\css\style-normal.css" />
     <Content Include="Content\css\style-wide.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\Failure_Success.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.svg" />
@@ -273,6 +313,44 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\database\CareerDB.bak" />
+    <Content Include="AdminBoard\src\pug\layouts\authentication.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\dashboard.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\error.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\footer.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\head\css.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\head\icons.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\head\meta.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\head\title.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\navigation\sidenav.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\navigation\topnav.pug" />
+    <Content Include="AdminBoard\src\pug\layouts\includes\scripts.pug" />
+    <Content Include="AdminBoard\src\pug\pages\401.pug" />
+    <Content Include="AdminBoard\src\pug\pages\404.pug" />
+    <Content Include="AdminBoard\src\pug\pages\500.pug" />
+    <Content Include="AdminBoard\src\pug\pages\charts.pug" />
+    <Content Include="AdminBoard\src\pug\pages\includes\datatable.pug" />
+    <Content Include="AdminBoard\src\pug\pages\includes\page-header.pug" />
+    <Content Include="AdminBoard\src\pug\pages\index.pug" />
+    <Content Include="AdminBoard\src\pug\pages\layout-sidenav-light.pug" />
+    <Content Include="AdminBoard\src\pug\pages\layout-static.pug" />
+    <Content Include="AdminBoard\src\pug\pages\login.pug" />
+    <Content Include="AdminBoard\src\pug\pages\password.pug" />
+    <Content Include="AdminBoard\src\pug\pages\register.pug" />
+    <Content Include="AdminBoard\src\pug\pages\tables.pug" />
+    <Content Include="AdminBoard\src\scss\layout\_authentication.scss" />
+    <Content Include="AdminBoard\src\scss\layout\_dashboard-default.scss" />
+    <Content Include="AdminBoard\src\scss\layout\_dashboard-fixed.scss" />
+    <Content Include="AdminBoard\src\scss\layout\_error.scss" />
+    <Content Include="AdminBoard\src\scss\navigation\sidenav\_sidenav-dark.scss" />
+    <Content Include="AdminBoard\src\scss\navigation\sidenav\_sidenav-light.scss" />
+    <Content Include="AdminBoard\src\scss\navigation\sidenav\_sidenav.scss" />
+    <Content Include="AdminBoard\src\scss\navigation\_nav.scss" />
+    <Content Include="AdminBoard\src\scss\navigation\_topnav.scss" />
+    <Content Include="AdminBoard\src\scss\styles.scss" />
+    <Content Include="AdminBoard\src\scss\variables\_navigation.scss" />
+    <Content Include="AdminBoard\src\scss\variables\_spacing.scss" />
+    <Content Include="AdminBoard\src\scss\_global.scss" />
+    <Content Include="AdminBoard\src\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -404,6 +482,11 @@
     <Content Include="Views\Products\ProceedToPay.cshtml" />
     <Content Include="Views\Products\Contact.cshtml" />
     <Content Include="Views\Products\About.cshtml" />
+    <Content Include="Views\Payment\FailureView.cshtml" />
+    <Content Include="Views\Payment\SuccessView.cshtml" />
+    <Content Include="Views\Shared\_adm.cshtml" />
+    <Content Include="Views\Shared\_admv.cshtml" />
+    <Content Include="Views\NewAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
