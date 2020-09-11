@@ -214,6 +214,7 @@
     <Content Include="Content\css\style-normal.css" />
     <Content Include="Content\css\style-wide.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\database\script.sql" />
     <Content Include="Content\Failure_Success.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
